@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "./Header.tsx";
 
 // API用URL
 const url =
@@ -12,7 +13,7 @@ interface WeatherData {
   };
 }
 
-const Test = () => {
+const Result = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<WeatherData>();
   const [progress, setProgress] = useState(0);
@@ -58,31 +59,30 @@ const Test = () => {
   }, []);
 
   if (isLoading) {
-    // ローディング中はプログレスバーを表示
     return (
       <>
-        <h1>Loading...</h1>
-        <progress value={progress} max={100}></progress>
-        <span>{Math.round(progress)}%</span>
+        <Header title="北九州高専DCON!" />
+        <main>
+          <div className="loading-container">
+            <h1 className="loading-text">Loading...</h1>
+          </div>
+        </main>
       </>
     );
   } else {
-    // データが取得できたら表示
     return (
       <>
-        <h2>Temperature Forecast</h2>
-        {data && data.hourly && (
-          <ul>
-            {data.hourly.time.map((time, index) => (
-              <li key={time}>
-                {time}: {data.hourly.temperature_2m[index]}°C
-              </li>
-            ))}
-          </ul>
-        )}
+        <Header title="北九州高専DCON!" />
+        <main>
+          <h2>Temperature Forecast</h2>
+          {data && data.hourly && (
+            <ul>
+            </ul>
+          )}
+        </main>
       </>
     );
   }
 };
 
-export default Test;
+export default Result;

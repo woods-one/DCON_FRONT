@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client"; // 更新されたインポート
 import "./index.css";
 import App from "./App.tsx";
-import Test from "./Test.tsx";
+import Test from "./Result.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals.ts";
 
@@ -13,7 +13,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/test" element={<Test />} />
+        <Route path="/result" element={<Test />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

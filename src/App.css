@@ -7,17 +7,26 @@
   text-align: center; /* テキストを中央揃え */
 }
 
+/* App.css */
 header {
-  position: fixed; /* ヘッダーを画面上部に固定 */
-  top: 0; /* 上部に配置 */
-  left: 0; /* 左端に配置 */
-  width: 100%; /* 幅を画面いっぱいに */
-  background-color: #333; /* ヘッダーの背景色 */
-  color: white; /* ヘッダーの文字色 */
-  padding: 10px 0; /* 上下のパディング */
-  text-align: center; /* ヘッダー内のテキストを中央揃え */
-  z-index: 1000; /* 他の要素より前面に表示 */
+  position: fixed; /* スクロールしても固定 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* ヘッダーの高さを指定 */
+  background-color: #333; /* 背景色を指定 */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 見た目を強調 */
 }
+
+main {
+  padding-top: 60px; /* ヘッダーの高さ分の余白を確保 */
+}
+
 
 header h1 {
   margin: 0; /* ヘッダーのh1のマージンを0に */
@@ -72,4 +81,28 @@ button {
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 中央配置用のスタイル */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ビューポート全体の高さ */
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 2rem; /* テキストサイズを調整 */
+  color: #333; /* テキストの色 */
+  animation: blink 1s infinite; /* 点滅アニメーション */
 }
