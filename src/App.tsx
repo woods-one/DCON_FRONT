@@ -1,20 +1,26 @@
+import { useEffect, useState } from "react";
 import Header from "./Header.tsx";
-import { useState } from "react";
+import { useVideo } from "./VideoContext.tsx"; // useVideo をインポート
 import LinkButton from "./children/LinkButton.tsx";
 import "./App.css";
+import { VideoProvider } from "./VideoContext.tsx"; // ここを追加
 
-function App() {
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+function AppContent() {
+  const { videoUrl, setVideoUrl } = useVideo(); // Context から videoUrl を取得
   const [isSetedVideo, setIsSetedVideo] = useState(false);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       const fileUrl = URL.createObjectURL(file);
-      setVideoUrl(fileUrl);
+      setVideoUrl(fileUrl); // Context の setVideoUrl を使用
       setIsSetedVideo(true);
     }
   };
+
+  useEffect(() => {
+    console.log(videoUrl); // videoUrl が更新されるたびにログを表示
+  }, [videoUrl]); 
 
   return (
     <div className="App">
@@ -33,6 +39,14 @@ function App() {
         </div>
       </main>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <VideoProvider>
+      <AppContent />
+    </VideoProvider>
   );
 }
 

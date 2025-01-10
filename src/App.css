@@ -82,6 +82,25 @@ button {
     transform: rotate(360deg);
   }
 }
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.score-list {
+  width: 45%;
+}
+
+.total-score {
+  width: 45%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 40px;
+}
+
 
 @keyframes blink {
   0%, 100% {
