@@ -1,0 +1,75 @@
+.App {
+  display: flex;
+  flex-direction: column; /* 縦並び */
+  justify-content: center; /* 縦方向の中央揃え */
+  align-items: center; /* 横方向の中央揃え */
+  height: 100vh; /* 画面の高さに合わせる */
+  text-align: center; /* テキストを中央揃え */
+}
+
+header {
+  position: fixed; /* ヘッダーを画面上部に固定 */
+  top: 0; /* 上部に配置 */
+  left: 0; /* 左端に配置 */
+  width: 100%; /* 幅を画面いっぱいに */
+  background-color: #333; /* ヘッダーの背景色 */
+  color: white; /* ヘッダーの文字色 */
+  padding: 10px 0; /* 上下のパディング */
+  text-align: center; /* ヘッダー内のテキストを中央揃え */
+  z-index: 1000; /* 他の要素より前面に表示 */
+}
+
+header h1 {
+  margin: 0; /* ヘッダーのh1のマージンを0に */
+}
+
+/* 動画を上に固定 */
+video {
+  width: 640px;      /* 幅を固定 */
+  height: 360px;     /* 高さを固定 */
+  display: block;    /* 他の要素と重ならないようにする */
+  margin-bottom: 20px; /* 動画とボタンの間にスペースを追加 */
+  position: relative; /* 親要素に対して相対的に配置 */
+  top: 0;            /* 上部に配置 */
+}
+
+
+button {
+  display: inline-block;
+  margin-top: 10px; /* ボタンの上にスペースを追加 */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
