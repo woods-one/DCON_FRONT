@@ -1,0 +1,73 @@
+/* ヘッダーの基本スタイル */
+.header {
+    display: flex; /* フレックスボックスでレイアウト */
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: space-between; /* 左右の要素を両端に配置 */
+    background-color: #f8f9fa; /* 背景色 */
+    height: 80px; /* ヘッダーの高さを拡大 */
+    padding: 0 20px; /* ヘッダー内の左右の余白 */
+    box-sizing: border-box; /* パディングを含めた幅を計算 */
+    width: 100%; /* ヘッダーを横幅いっぱいに広げる */
+    border-bottom: 1px solid #ddd; /* ヘッダー下部に境界線を追加 */
+  }
+  
+  /* ロゴのスタイル */
+  .header-logo {
+    height: 60px; /* ロゴの高さを基準に設定 */
+    width: auto; /* 幅を高さに応じて自動調整 */
+    margin: 0; /* ロゴの余白を削除 */
+  }
+  
+  /* ユーザーエリアのスタイル */
+  .header-user-area {
+    display: flex; /* フレックスボックスで横並び */
+    align-items: center; /* 垂直方向の中央揃え */
+    gap: 10px; /* アイコンと名前の間にスペースを追加 */
+    flex-direction: row-reverse; /* アイコンと名前の順序を逆転 */
+  }
+  
+  /* ユーザーアイコンのスタイル */
+  .header-user-icon {
+    width: 50px; /* アイコンの幅を拡大 */
+    height: 50px; /* アイコンの高さも拡大 */
+    border-radius: 50%; /* 丸い形状にする */
+    object-fit: cover; /* アイコン画像を枠内に収める */
+    cursor: pointer; /* ポインターを表示 */
+  }
+  
+  /* ユーザー名のスタイル（小判形） */
+  .header-user-plan {
+    display: inline-block; /* インラインブロックで要素を扱う */
+    padding: 8px 20px; /* 上下左右の余白を調整 */
+    background-color: #fff; /* 背景色を白に設定 */
+    color: #000; /* 文字色を黒に設定 */
+    border: 2px solid #000; /* 黒の枠線を追加 */
+    border-radius: 20px; /* 小判形にする */
+    font-size: 16px; /* フォントサイズを拡大 */
+    font-weight: bold; /* フォントを太字に */
+    white-space: nowrap; /* テキストの折り返しを防ぐ */
+    cursor: default; /* デフォルトのカーソルを表示 */
+  }
+  
+  /* レスポンシブデザイン（スマートフォンサイズ以下） */
+  @media (max-width: 480px) {
+    .header {
+      padding: 0 10px; /* 左右の余白を縮小 */
+      height: 70px; /* ヘッダーの高さを調整 */
+    }
+  
+    .header-logo {
+      height: 50px; /* ロゴの高さを縮小 */
+    }
+  
+    .header-user-icon {
+      width: 40px; /* アイコンを縮小 */
+      height: 40px; /* 高さも縮小 */
+    }
+  
+    .header-user-plan {
+      font-size: 14px; /* フォントサイズを縮小 */
+      padding: 5px 15px; /* 余白を縮小 */
+    }
+  }
+  
