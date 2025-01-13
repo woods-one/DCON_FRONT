@@ -6,6 +6,7 @@ import Test from "./Result.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { VideoProvider } from "./VideoContext.tsx"; // VideoProviderをインポート
 import reportWebVitals from "./reportWebVitals.ts";
+import Running from "./Running.tsx";
 
 // React 18に対応したコード
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement); // TypeScript対応
@@ -15,6 +16,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
+          <Route path="/run" element={<Running />} />
           <Route path="/result" element={<Test />} />
         </Routes>
       </BrowserRouter>

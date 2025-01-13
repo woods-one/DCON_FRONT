@@ -1,0 +1,80 @@
+/* ヘッダーの高さ分だけコンテンツを下げる */
+.running-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 100px; /* ヘッダーの高さ（例: 80px + 少しの余白） */
+  }
+  
+  .running-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px; /* ヘッダーとの間隔を調整 */
+  }
+  
+  .left-area {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .comment-box {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comment-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .volume-area {
+    display: flex;
+    align-items: center;
+  }
+  
+  .volume-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .time-area {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .right-area {
+    width: 45%;
+  }
+  
+  .camera-feed {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result-button {
+    margin-top: 20px;
+  }
+  
+  .result-button button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .result-button button:hover {
+    background-color: #0056b3;
+  }
+  

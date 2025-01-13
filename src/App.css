@@ -1,3 +1,21 @@
+/* 全体の背景画像スタイル */
+html, body {
+  margin: 0; /* ページの余白を削除 */
+  padding: 0; /* ページの余白を削除 */
+  height: 100%; /* 背景画像が全画面に広がるように */
+  overflow: hidden; /* スクロールを無効にする */
+}
+
+body {
+  background-image: url('/background-image.jpg'); /* 背景画像のパス */
+  background-size: cover; /* 背景画像を画面全体に拡大 */
+  background-repeat: no-repeat; /* 背景画像を繰り返さない */
+  background-position: center; /* 画像を中央に配置 */
+  background-attachment: fixed; /* 背景画像を固定 */
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+/* アプリ全体のスタイル */
 .App {
   display: flex;
   flex-direction: column; /* 縦並び */
@@ -7,121 +25,119 @@
   text-align: center; /* テキストを中央揃え */
 }
 
-/* App.css */
+/* ヘッダーのスタイル */
 header {
   position: fixed; /* スクロールしても固定 */
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px; /* ヘッダーの高さを指定 */
-  background-color: #333; /* 背景色を指定 */
+  height: 80px; /* ヘッダーの高さ */
+  background-color: rgba(51, 51, 51, 0.8); /* 背景色を半透明に */
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 見た目を強調 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 影を追加 */
 }
 
 main {
-  padding-top: 60px; /* ヘッダーの高さ分の余白を確保 */
+  padding-top: 80px; /* ヘッダーの高さ分の余白を確保 */
+}
+
+/* 1週間の平均を表示するボックス */
+.score-box {
+  background-color: #f9f9f9; /* ボックスの背景色 */
+  border: 2px solid #ddd; /* ボックスの枠線 */
+  border-radius: 20px; /* 角丸の設定 */
+  padding: 40px; /* 内側の余白を増やす */
+  width: 500px; /* ボックスの幅を拡大 */
+  text-align: center; /* 中央揃え */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 影を強調 */
+  margin: 40px auto; /* 上下の余白、中央配置 */
+}
+
+.score-box h2 {
+  font-size: 24px; /* タイトルの文字サイズを拡大 */
+  font-weight: bold; /* 太字 */
+  color: #333; /* 文字色 */
+  margin-bottom: 20px; /* タイトル下の余白を増やす */
+}
+
+.average-score {
+  font-size: 32px; /* 点数の文字サイズを拡大 */
+  font-weight: bold; /* 太字 */
+  color: #4CAF50; /* 点数の色（緑） */
+  margin-bottom: 30px; /* 点数下の余白を増やす */
+}
+
+/* ボタンのグループ */
+.button-group {
+  display: flex; /* フレックスボックス */
+  justify-content: space-evenly; /* ボタンを等間隔に配置 */
+  gap: 20px; /* ボタン間のスペースを広げる */
+}
+
+/* ボタンのスタイル */
+.result-button,
+.detail-button {
+  padding: 15px 30px; /* ボタンの内側余白 */
+  font-size: 16px; /* ボタンの文字サイズ */
+  border: none; /* 枠線を削除 */
+  border-radius: 50px; /* 楕円形（小判型）にする */
+  background-color: #FFA189; /* ボタンの背景色 */
+  color: white; /* ボタンの文字色 */
+  cursor: pointer; /* ポインターを表示 */
+  transition: background-color 0.3s ease; /* 背景色の変化をスムーズに */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 少し影を追加して立体感を出す */
+}
+
+/* ボタンのホバー効果 */
+.result-button:hover,
+.detail-button:hover {
+  background-color: #FF7F61; /* ホバー時の背景色をやや濃く */
+}
+
+/* STARTボタンのスタイル */
+.start-button {
+  width: 200px; /* 幅 */
+  height: 60px; /* 高さ */
+  font-size: 24px; /* フォントサイズ */
+  font-weight: bold; /* 太字 */
+  color: white; /* 文字色 */
+  background-color: #FA8568; /* 背景色 */
+  border: none; /* 枠線を削除 */
+  border-radius: 8px; /* 角を少し丸める */
+  cursor: pointer; /* カーソルをポインターに */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 背景色とアニメーション */
+  margin-top: 40px; /* ボタンと上部要素の間に余白を追加 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加して立体感を出す */
+}
+
+/* ホバー時のスタイル */
+.start-button:hover {
+  background-color: #FA8568; /* ホバー時の背景色 */
+  transform: scale(1.05); /* 拡大してアニメーション */
+}
+
+/* クリック時のスタイル */
+.start-button:active {
+  transform: scale(0.95); /* 押したとき少し縮む */
 }
 
 
-header h1 {
-  margin: 0; /* ヘッダーのh1のマージンを0に */
-}
-
-/* 動画を上に固定 */
-video {
-  width: 640px;      /* 幅を固定 */
-  height: 360px;     /* 高さを固定 */
-  display: block;    /* 他の要素と重ならないようにする */
-  margin-bottom: 20px; /* 動画とボタンの間にスペースを追加 */
-  position: relative; /* 親要素に対して相対的に配置 */
-  top: 0;            /* 上部に配置 */
-}
-
-
-button {
-  display: inline-block;
-  margin-top: 10px; /* ボタンの上にスペースを追加 */
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* レスポンシブデザイン */
+@media (max-width: 480px) {
+  .score-box {
+    width: 90%; /* 幅を画面幅の90%に調整 */
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .button-group {
+    flex-direction: column; /* ボタンを縦に並べる */
   }
-  to {
-    transform: rotate(360deg);
+
+  .result-button,
+  .detail-button {
+    width: 100%; /* ボタンを幅いっぱいに広げる */
   }
-}
-.score-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.score-list {
-  width: 45%;
-}
-
-.total-score {
-  width: 45%;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: 40px;
-}
-
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-/* 中央配置用のスタイル */
-.loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* ビューポート全体の高さ */
-  text-align: center;
-}
-
-.loading-text {
-  font-size: 2rem; /* テキストサイズを調整 */
-  color: #333; /* テキストの色 */
-  animation: blink 1s infinite; /* 点滅アニメーション */
 }

@@ -1,60 +1,31 @@
-import { useEffect, useState, useRef} from "react";
+import { useNavigate } from "react-router-dom"; // 画面遷移用のフックをインポート
 import Header from "./Header.tsx";
-import { useVideo } from "./VideoContext.tsx"; // useVideo をインポート
-import LinkButton from "./children/LinkButton.tsx";
 import "./App.css";
-import { VideoProvider } from "./VideoContext.tsx"; // ここを追加
-import {Camera} from "react-camera-pro";
 
-function AppContent() {
-  const { videoUrl, setVideoUrl } = useVideo(); // Context から videoUrl を取得
-  const [isSetedVideo, setIsSetedVideo] = useState(false);
+function App() {
+  const navigate = useNavigate(); // useNavigate を使用して画面遷移を実現
 
-  const camera = useRef(null);
-  const [image, setImage] = useState(null);
-
-  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const fileUrl = URL.createObjectURL(file);
-      setVideoUrl(fileUrl); // Context の setVideoUrl を使用
-      setIsSetedVideo(true);
-    }
+  const handleStartClick = () => {
+    navigate("/run"); // "/start" に遷移（必要に応じて変更）
   };
-
-  useEffect(() => {
-    console.log(videoUrl); // videoUrl が更新されるたびにログを表示
-  }, [videoUrl]); 
 
   return (
     <div className="App">
-      <Header title="北九州高専DCON!" />
+      <Header />
       <main>
-      <button onClick={() => setImage(camera.current.takePhoto())}>Take photo</button>
-        
-        <img src={image} alt='Taken photo' style={{ width: 'auto', height: '200px' }} />
-
-        <div>
-          {!isSetedVideo && <h2>プレゼン動画に点数を付けるよ！動画を選んでね！</h2>}
-          <input type="file" accept="video/*" onChange={handleFileSelect} />
-          {videoUrl && isSetedVideo && (
-            <video controls>
-              <source src={videoUrl} type="video/mp4" />
-              お使いのブラウザは動画をサポートしていません。
-            </video>
-          )}
-          {isSetedVideo && <LinkButton text="採点" link="/result" canLink={isSetedVideo} />}
+        <div className="score-box">
+          <h2>1週間の平均</h2>
+          <p className="average-score">85点</p>
+          <div className="button-group">
+            <button className="result-button">過去の結果を確認</button>
+            <button className="detail-button">詳細を確認</button>
+          </div>
         </div>
+        <button className="start-button" onClick={handleStartClick}>
+          START
+        </button>
       </main>
     </div>
-  );
-}
-
-function App() {
-  return (
-    <VideoProvider>
-      <AppContent />
-    </VideoProvider>
   );
 }
 
