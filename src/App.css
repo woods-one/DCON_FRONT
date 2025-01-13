@@ -79,7 +79,7 @@ main {
 }
 
 /* ボタンのスタイル */
-.result-button,
+.past-result-button,
 .detail-button {
   padding: 15px 30px; /* ボタンの内側余白 */
   font-size: 16px; /* ボタンの文字サイズ */
@@ -93,7 +93,7 @@ main {
 }
 
 /* ボタンのホバー効果 */
-.result-button:hover,
+.past-result-button:hover,
 .detail-button:hover {
   background-color: #FF7F61; /* ホバー時の背景色をやや濃く */
 }
@@ -112,6 +112,7 @@ main {
   transition: background-color 0.3s ease, transform 0.2s ease; /* 背景色とアニメーション */
   margin-top: 40px; /* ボタンと上部要素の間に余白を追加 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加して立体感を出す */
+  font-weight: bold;
 }
 
 /* ホバー時のスタイル */

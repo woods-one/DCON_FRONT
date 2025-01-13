@@ -1,4 +1,4 @@
-/* ヘッダーの高さ分だけコンテンツを下げる */
+/* コンテナのレイアウト調整 */
 .running-container {
     display: flex;
     flex-direction: column;
@@ -13,68 +13,148 @@
     width: 100%;
     max-width: 1200px;
     margin-top: 20px; /* ヘッダーとの間隔を調整 */
+    align-items: flex-start; /* 子要素を上に揃える */
   }
   
   .left-area {
-    width: 45%;
+    width: 30%; /* コメントエリアの幅を減らす */
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 550px; /* 高さを500pxに固定 */
   }
   
-  .comment-box {
+/* コメントボックス */
+.comment-box {
     background-color: #f0f0f0;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* アイコンとコメントを上下に並べる */
+    align-items: center; /* 横方向の中央寄せ */
+    justify-content: flex-start; /* 上に寄せて配置 */
+    height: 100%; /* 親要素に合わせて高さを調整 */
+    position: relative;
   }
   
+  /* コメント見出し */
+  .comment-heading {
+    font-size: 25px;
+    color: #555;
+    font-weight: bold;
+    position: absolute; /* 見出しを絶対位置で固定 */
+    top: 5px; /* 上から10px */
+    left: 10px; /* 左から10px */
+    margin-bottom: 10px; /* コメントと見出しの間に余白 */
+  }
+  
+  /* コメントテキスト */
   .comment-text {
-    font-size: 16px;
+    font-size: 30px;
+    font-weight: bold;
     color: #333;
+    margin-bottom: 10px; /* コメントと音量アイコンの間にスペース */
+    text-align: center; /* コメントテキストを中央寄せ */
+    width: 100%; /* コメント枠全体に合わせる */
   }
   
+  /* コメントの中央に挿入する線 */
+  .center-line {
+    position: absolute; /* 水平線を絶対位置で配置 */
+    top: 75%; /* コメントボックス内の70%の位置に配置 */
+    width: 80%; /* 幅を80%に設定 */
+    height: 2px;
+    background-color: #ccc;
+    left: 50%; /* 左から50%に配置（中央に寄せる） */
+    transform: translateX(-50%); /* 左側の余白を均等にするため、中央寄せ */
+  }
+  
+  /* 音量アイコン */
   .volume-area {
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: absolute; /* 音量アイコンを絶対位置で固定 */
+    bottom: 15px; /* ボトムから10pxの位置に配置 */
+    width: 100%;
   }
   
   .volume-icon {
-    width: 40px;
-    height: 40px;
-  }
+    width: 100px;
+    height: 100px;
+  }  
   
-  .time-area {
-    font-size: 18px;
-    color: #555;
-  }
-  
+  /* 右側のカメラ映像エリア */
   .right-area {
-    width: 45%;
+    width: 68%; /* カメラ映像エリアの幅を増やす */
+    display: flex;
+    justify-content: center; /* カメラ映像を中央に配置 */
+    align-items: center; /* 垂直方向にも中央に配置 */
+    height: 550px; /* カメラ映像エリアの高さを500pxに固定 */
   }
   
   .camera-feed {
-    width: 100%;
-    height: auto;
+    width: 100%; /* 横幅を親要素に合わせる */
+    max-width: 1000px; /* 最大横幅を固定 */
+    height: 550px; /* カメラ映像の高さを固定 */
+    object-fit: cover; /* カメラ映像が枠をはみ出さずに収まるようにする */
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .result-button {
-    margin-top: 20px;
+/* 経過時間エリア */
+.time-area {
+    position: absolute; /* 絶対位置 */
+    bottom: 20px; /* 画面の下から20pxの位置に配置 */
+    left: 75px; /* 画面の左から20pxの位置に配置 */
+    font-size: 18px; /* フォントサイズ */
+    color: #fff; /* 文字色を白に設定 */
+    padding: 5px 0px; /* 内側に余白を追加 */
+    text-align: left; /* 全体を左寄せ */
   }
   
-  .result-button button {
-    padding: 10px 20px;
-    background-color: #007bff;
+  /* 経過時間のタイトル（h3） */
+  .time-area h3 {
+    font-size: 30px;
+    color: #555;
+    margin: 0; /* 上下の余白をゼロに */
+    padding: 0; /* 内側の余白をゼロに */
+    text-align: left; /* 左詰め */
+  }
+  
+  /* 経過時間（p） */
+  .time-area p {
+    font-size: 100px;
+    font-weight: bold;
+    color: #000; /* 経過時間の色 */
+    margin-top: 0; /* 上の余白をゼロに */
+    margin-bottom: 0; /* 下の余白をゼロに */
+  }
+  
+  
+
+  
+/* リザルト画面にいくボタン */
+.result-button {
+    position: absolute; /* 絶対位置で配置 */
+    bottom: 30px; /* 画面の下から20pxの位置 */
+    right: 30px; /* 画面の右から20pxの位置 */
+    text-align: center;
+}
+
+.result-button button {
+    padding: 30px 100px; /* ボタンのパディング */
+    background-color: #FA8568; /* ボタンの色 */
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 40px;
+    font-weight: bold;
     cursor: pointer;
-  }
-  
-  .result-button button:hover {
-    background-color: #0056b3;
-  }
+}
+
+.result-button button:hover {
+    background-color: #FA8568; /* ホバー時の色 */
+}
+
   

@@ -17,7 +17,7 @@ function App() {
           <h2>1週間の平均</h2>
           <p className="average-score">85点</p>
           <div className="button-group">
-            <button className="result-button">過去の結果を確認</button>
+            <button className="past-result-button">過去の結果を確認</button>
             <button className="detail-button">詳細を確認</button>
           </div>
         </div>
